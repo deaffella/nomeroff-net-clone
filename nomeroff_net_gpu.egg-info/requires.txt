@@ -1,0 +1,13 @@
+GitPython
+numpy
+matplotlib
+Keras==2.2.*
+Cython
+pycocotools
+matplotlib
+opencv_python
+imutils
+scikit_image
+jupyter
+asyncio
+imgaug
