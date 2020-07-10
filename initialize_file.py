@@ -52,7 +52,7 @@ if __name__=="__main__":
         }
     })
 
-    img_path = '1.JPG'
+    img_path = '/var/www/1.JPG'
     print(img_path)
 
     img = mpimg.imread(img_path)

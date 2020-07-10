@@ -18,6 +18,10 @@ RUN apt-get install -y libxtst6
 RUN apt-get install -y git
 RUN apt-get install -y nano
 RUN apt-get install -y wget
+RUN apt-get install -y unicorn
+
+RUN cd /var/www/ && wget "https://github.com/ria-com/nomeroff-net/raw/master/examples/images/example1.jpeg" -O 1.JPG
+RUN git clone https://github.com/deaffella/nomeroff-net-clone.git /var/www/nomeroff-net
 
 RUN pip3 install scikit_image
 RUN pip3 install Cython
@@ -35,7 +39,11 @@ RUN pip3 install GitPython
 RUN pip3 install pycocotools
 RUN pip3 install tqdm
 RUN pip3 install git+https://github.com/matterport/Mask_RCNN
+RUN pip3 install fastapi
+RUN pip3 install gunicorn
+RUN pip3 install unicorn
+RUN pip3 install pydantic
 
-RUN cd /var/www/ && wget "https://github.com/ria-com/nomeroff-net/raw/master/examples/images/example1.jpeg" -O 1.JPG && git clone https://github.com/ria-com/nomeroff-net.git
-#&& cd nomeroff-net && python3 setup.py install
+RUN cd /var/www/nomeroff-net/ && python3 setup.py install
+RUN cd /var/www/nomeroff-net/ && python3 initialize_file.py
 WORKDIR /var/www/nomeroff-net
